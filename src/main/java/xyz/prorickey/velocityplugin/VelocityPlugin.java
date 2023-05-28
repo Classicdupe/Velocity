@@ -21,7 +21,7 @@ import xyz.prorickey.velocityplugin.events.JoinEvent;
         authors = {"Prorickey"})
 public class VelocityPlugin {
 
-    private final ProxyServer server;
+    private static ProxyServer server;
     private static Logger logger;
 
     private static Database database;
@@ -30,8 +30,8 @@ public class VelocityPlugin {
     private static LibertyBans lbapi = OmnibusProvider.getOmnibus().getRegistry().getProvider(LibertyBans.class).orElseThrow();
 
     @Inject
-    public VelocityPlugin(ProxyServer server, Logger l) {
-        this.server = server;
+    public VelocityPlugin(ProxyServer srv, Logger l) {
+        server = srv;
         logger = l;
 
         database = new Database();
@@ -41,18 +41,19 @@ public class VelocityPlugin {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        CommandManager cmdManager = this.server.getCommandManager();
+        CommandManager cmdManager = server.getCommandManager();
 
         cmdManager.register(
                 cmdManager.metaBuilder("goto").aliases("tpserver").plugin(this).build(),
-                GotoCMD.createBrgadierCommand(this.server)
+                GotoCMD.createBrgadierCommand(server)
         );
 
-        this.server.getEventManager().register(this, new JoinEvent());
+        server.getEventManager().register(this, new JoinEvent());
 
         logger.info("Registered commands");
     }
 
+    public static ProxyServer getProxyServer() { return server; }
     public static Omnibus getLbomnibus() { return lbomnibus; }
     public static LibertyBans getLbapi() { return lbapi; }
     public static Logger getLogger() { return logger; }
