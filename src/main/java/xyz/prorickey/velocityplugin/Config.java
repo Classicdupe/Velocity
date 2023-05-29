@@ -3,11 +3,7 @@ package xyz.prorickey.velocityplugin;
 import com.velocitypowered.api.proxy.ProxyServer;
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.net.URISyntaxException;
-import java.util.Map;
+import java.io.*;
 
 public class Config {
 
@@ -19,9 +15,14 @@ public class Config {
 
     public static void init(ProxyServer proxy) {
         try {
-            file = new File(VelocityPlugin.class.getResource("/resources/config.yml").toURI());
-            config = yaml.load(new FileInputStream(file));
-        } catch (URISyntaxException | FileNotFoundException e) {
+            InputStream inputStream = VelocityPlugin.class.getClassLoader().getResourceAsStream("config.yml");
+            if (inputStream != null) {
+                config = yaml.load(inputStream);
+                inputStream.close();
+            } else {
+                throw new FileNotFoundException("config.yml file not found");
+            }
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }

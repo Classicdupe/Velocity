@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3b055bbf-3f8b-4233-987c-64550c162b13" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/LibraryLoader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Config.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/VelocityPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/VelocityPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/ClassicDupeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/ClassicDupeBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
