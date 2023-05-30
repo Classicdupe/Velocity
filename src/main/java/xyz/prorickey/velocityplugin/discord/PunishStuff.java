@@ -1,6 +1,5 @@
 package xyz.prorickey.velocityplugin.discord;
 
-import com.velocitypowered.api.util.UuidUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import org.shanerx.mojang.Mojang;
@@ -21,8 +20,6 @@ public class PunishStuff {
             JDA jda = ClassicDupeBot.getJDA();
             EmbedBuilder eb = new EmbedBuilder();
             Mojang api = new Mojang().connect();
-
-
 
             String victim = "Unknown";
             if(evt.getDraftPunishment().getVictim() instanceof PlayerVictim v) victim = api.getPlayerProfile(v.getUUID().toString()).getUsername();

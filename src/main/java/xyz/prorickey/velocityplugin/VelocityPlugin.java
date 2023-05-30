@@ -8,11 +8,13 @@ import com.velocitypowered.api.plugin.Dependency;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
+import net.dv8tion.jda.api.JDA;
 import org.slf4j.Logger;
 import space.arim.libertybans.api.LibertyBans;
 import space.arim.omnibus.Omnibus;
 import space.arim.omnibus.OmnibusProvider;
 import xyz.prorickey.velocityplugin.commands.GotoCMD;
+import xyz.prorickey.velocityplugin.discord.ClassicDupeBot;
 import xyz.prorickey.velocityplugin.discord.PunishStuff;
 import xyz.prorickey.velocityplugin.events.JoinEvent;
 
@@ -32,11 +34,12 @@ public class VelocityPlugin {
     private static ProxyServer server;
     private static Logger logger;
     private static Path dataDirectory;
+    private static ClassicDupeBot jda;
 
     private static Database database;
 
-    private static Omnibus lbomnibus = OmnibusProvider.getOmnibus();
-    private static LibertyBans lbapi = OmnibusProvider.getOmnibus().getRegistry().getProvider(LibertyBans.class).orElseThrow();
+    private static Omnibus lbomnibus;
+    private static LibertyBans lbapi;
 
     @Inject
     public VelocityPlugin(ProxyServer srv, Logger l, @DataDirectory Path dataDir) {
@@ -50,9 +53,13 @@ public class VelocityPlugin {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        LibraryLoader.loadLibraries(dataDirectory);
         Config.init(server);
-        database = new Database();
+
+        lbomnibus = OmnibusProvider.getOmnibus();
+        lbapi = OmnibusProvider.getOmnibus().getRegistry().getProvider(LibertyBans.class).orElseThrow();
+
+        jda = new ClassicDupeBot();
+
         CommandManager cmdManager = server.getCommandManager();
 
         cmdManager.register(
@@ -61,8 +68,6 @@ public class VelocityPlugin {
         );
 
         server.getEventManager().register(this, new JoinEvent());
-
-        PunishStuff.registerListener();
 
         logger.info("Registered commands");
     }

@@ -7,12 +7,10 @@
     <list default="true" id="3b055bbf-3f8b-4233-987c-64550c162b13" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/LibraryLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/LibraryLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/LibraryLoader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/VelocityPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/VelocityPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/ClassicDupeBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/ClassicDupeBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/PunishStuff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/discord/PunishStuff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/events/JoinEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xyz/prorickey/velocityplugin/events/JoinEvent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="VelocityPlugin" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="VelocityPlugin" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="shadow" type="c8890929:TasksNode$1" />
               </path>
             </expand>
@@ -74,7 +78,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Gradle.VelocityPlugin [shadowJar]">
+    <configuration name="VelocityPlugin [javadoc]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="javadoc" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="VelocityPlugin [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -99,6 +124,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.VelocityPlugin [shadowJar]" />
+        <item itemvalue="Gradle.VelocityPlugin [javadoc]" />
       </list>
     </recent_temporary>
   </component>
