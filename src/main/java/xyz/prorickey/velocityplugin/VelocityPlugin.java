@@ -13,6 +13,7 @@ import space.arim.libertybans.api.LibertyBans;
 import space.arim.omnibus.Omnibus;
 import space.arim.omnibus.OmnibusProvider;
 import xyz.prorickey.velocityplugin.commands.GotoCMD;
+import xyz.prorickey.velocityplugin.discord.PunishStuff;
 import xyz.prorickey.velocityplugin.events.JoinEvent;
 
 import java.nio.file.Path;
@@ -34,8 +35,8 @@ public class VelocityPlugin {
 
     private static Database database;
 
-    //private static Omnibus lbomnibus = OmnibusProvider.getOmnibus();
-    //private static LibertyBans lbapi = OmnibusProvider.getOmnibus().getRegistry().getProvider(LibertyBans.class).orElseThrow();
+    private static Omnibus lbomnibus = OmnibusProvider.getOmnibus();
+    private static LibertyBans lbapi = OmnibusProvider.getOmnibus().getRegistry().getProvider(LibertyBans.class).orElseThrow();
 
     @Inject
     public VelocityPlugin(ProxyServer srv, Logger l, @DataDirectory Path dataDir) {
@@ -61,13 +62,15 @@ public class VelocityPlugin {
 
         server.getEventManager().register(this, new JoinEvent());
 
+        PunishStuff.registerListener();
+
         logger.info("Registered commands");
     }
 
     public static VelocityPlugin getPlugin() { return plugin; }
     public static ProxyServer getProxyServer() { return server; }
-    public static Omnibus getLbomnibus() { return null;  }
-    public static LibertyBans getLbapi() { return null;  }
+    public static Omnibus getLbomnibus() { return lbomnibus;  }
+    public static LibertyBans getLbapi() { return lbapi;  }
     public static Logger getLogger() { return logger; }
     public static Database getDatabase() { return database; }
 

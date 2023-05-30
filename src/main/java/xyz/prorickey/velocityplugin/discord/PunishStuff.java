@@ -1,7 +1,9 @@
 package xyz.prorickey.velocityplugin.discord;
 
+import com.velocitypowered.api.util.UuidUtils;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
+import org.shanerx.mojang.Mojang;
 import space.arim.libertybans.api.*;
 import space.arim.libertybans.api.event.PunishEvent;
 import space.arim.omnibus.events.EventConsumer;
@@ -18,15 +20,18 @@ public class PunishStuff {
         EventConsumer<PunishEvent> listener = evt -> {
             JDA jda = ClassicDupeBot.getJDA();
             EmbedBuilder eb = new EmbedBuilder();
+            Mojang api = new Mojang().connect();
+
+
 
             String victim = "Unknown";
-            if(evt.getDraftPunishment().getVictim() instanceof PlayerVictim v) victim = VelocityPlugin.getDatabase().getPlayerName(v.getUUID());
+            if(evt.getDraftPunishment().getVictim() instanceof PlayerVictim v) victim = api.getPlayerProfile(v.getUUID().toString()).getUsername();
             else if(evt.getDraftPunishment().getVictim() instanceof AddressVictim v) victim = v.getAddress().toString();
-            else if(evt.getDraftPunishment().getVictim() instanceof CompositeVictim v) victim = VelocityPlugin.getDatabase().getPlayerName(v.getUUID());
+            else if(evt.getDraftPunishment().getVictim() instanceof CompositeVictim v) victim = api.getPlayerProfile(v.getUUID().toString()).getUsername();
 
             String op = "Unknown";
             if(evt.getDraftPunishment().getOperator() instanceof ConsoleOperator) op = "Console";
-            else if(evt.getDraftPunishment().getOperator() instanceof PlayerOperator p) op = VelocityPlugin.getDatabase().getPlayerName(p.getUUID());
+            else if(evt.getDraftPunishment().getOperator() instanceof PlayerOperator p) op = api.getPlayerProfile(p.getUUID().toString()).getUsername();
 
             Duration dur = evt.getDraftPunishment().getDuration();
             eb.addField("Operator", op, true);
@@ -60,7 +65,7 @@ public class PunishStuff {
                 }
             }
 
-            jda.getTextChannelById(Config.getConfig().getDiscordData().getPunishChanel()).sendMessageEmbeds(eb.build()).queue();
+            jda.getTextChannelById(Config.getConfig().getDiscordData().getPunishChannel()).sendMessageEmbeds(eb.build()).queue();
         };
 
         VelocityPlugin.getLbomnibus().getEventBus().registerListener(PunishEvent.class, ListenerPriorities.NORMAL, listener);

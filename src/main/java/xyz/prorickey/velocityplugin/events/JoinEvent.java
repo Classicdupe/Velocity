@@ -8,7 +8,7 @@ public class JoinEvent {
 
     @Subscribe
     public void onPostLogin(PostLoginEvent event) {
-        VelocityPlugin.getDatabase().dbLoginLogic(event.getPlayer());
+        // VelocityPlugin.getDatabase().dbLoginLogic(event.getPlayer());
     }
 
 }
